@@ -13,9 +13,10 @@
                 <li class="flex items-center space-x-2">
                     <a href="../buyer/auth/login.php" class="inline-flex items-center space-x-2 py-1 px-3 bg-transparent border-2 border-white rounded-lg hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300">
                         <!-- SVG Icon for Login -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 5.25V18.75M5.25 12h13.5" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+</svg>
+
                         <!-- Teks Login -->
                         <span>Login</span>
                     </a>

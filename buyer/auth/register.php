@@ -54,11 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ssss", $username, $password, $nama_lengkap, $email);
     
     if ($stmt->execute()) {
-        $_SESSION['success'] = "Pendaftaran berhasil! Silakan login.";
-        header("Location: login.php");
+        $_SESSION['success'] = "Register Sukses!";
+        // Redirect ke halaman register untuk menampilkan modal
+        header("Location: register.php");
+        exit(); // Menghindari halaman ter-refresh lebih dari satu kali
     } else {
         $_SESSION['error'] = "Terjadi kesalahan. Coba lagi!";
         header("Location: register.php");
+        exit();
     }
 
     $stmt->close();
@@ -75,15 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center px-8 max-w-screen-xl">
-            <h1 class="text-4xl font-bold tracking-wide text-yellow-400 hover:text-yellow-500 cursor-pointer transition-all duration-300">
-                <a href="/index.php">Kadai Online</a>
-            </h1>
-        </div>
-    </header>
 
     <!-- Register Section -->
     <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12">
@@ -119,13 +113,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mt-4 text-center">
                 <p class="text-sm text-gray-600">Sudah punya akun? <a href="login.php" class="text-yellow-500 hover:underline">Login sekarang</a></p>
             </div>
+
+            <!-- Button to Go to Home -->
+            <div class="mt-4 text-center">
+                <a href="../../index.php" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300">
+                    Kembali ke Beranda
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Modal Error or Success -->
     <?php if (isset($_SESSION['error']) || isset($_SESSION['success'])): ?>
     <div class="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50" id="modal">
-        <div class="bg-white p-6 rounded-lg w-1/3">
+        <div class="bg-white p-6 rounded-lg w-40">
             <h3 class="text-lg font-semibold text-center text-gray-800">
                 <?php
                     if (isset($_SESSION['error'])) {
@@ -144,6 +145,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
+
+    <script>
+        // Menunggu 5 detik lalu mengalihkan halaman untuk notifikasi sukses
+        setTimeout(function() {
+            document.getElementById('modal').style.display = 'none';
+            <?php if (isset($_SESSION['success'])): ?>
+                window.location.href = 'login.php'; // Redirect setelah 5 detik untuk sukses
+            <?php endif; ?>
+        }, 5000);
+    </script>
+
     <?php endif; ?>
 
     <script>
@@ -151,13 +163,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             document.getElementById('modal').style.display = 'none';
         }
     </script>
-
-        <!-- Footer (Optional) -->
-        <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Kadai Online. All Rights Reserved.</p>
-        </div>
-    </footer>
 
 </body>
 </html>

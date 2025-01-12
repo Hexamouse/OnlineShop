@@ -2,8 +2,20 @@
 session_start();
 include('../includes/db.php');  // Pastikan koneksi database benar
 
-// Cek apakah admin sudah login
+// Cek apakah admin sudah login dan waktu aktivitasnya
 if (isset($_SESSION['admin_id'])) {
+    // Cek apakah sesi sudah lebih dari 30 menit
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
+        // Jika sudah lebih dari 30 menit, logout admin
+        session_unset();
+        session_destroy();
+        header("Location: login.php"); // Redirect ke halaman login
+        exit();
+    }
+
+    // Perbarui waktu terakhir aktivitas
+    $_SESSION['last_activity'] = time();
+
     header("Location: index.php");  // Arahkan jika admin sudah login
     exit();
 }
@@ -13,9 +25,6 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Debugging: Cek apakah username dan password sudah diterima dengan benar
-    // var_dump($_POST);  // Anda bisa aktifkan ini untuk debugging jika perlu
-
     // Validasi data login
     $query = "SELECT * FROM admin WHERE username = ? AND password = ?";
     $stmt = $conn->prepare($query);
@@ -23,22 +32,23 @@ if (isset($_POST['login'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Debugging: Cek hasil query
     if ($result->num_rows > 0) {
         $admin = $result->fetch_assoc();
 
         // Set session
         $_SESSION['admin_id'] = $admin['idadmin'];
         $_SESSION['admin_name'] = $admin['namalengkap'];
+        $_SESSION['last_activity'] = time(); // Set waktu terakhir aktivitas
 
         // Arahkan admin ke halaman index.php di folder admin
-        header("Location: index.php");  // Ganti 'admin/index.php' jika folder atau path berbeda
+        header("Location: index.php");
         exit();
     } else {
         $error_message = "Username atau password salah!";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">

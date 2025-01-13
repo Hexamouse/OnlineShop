@@ -25,7 +25,7 @@ if (isset($_POST['add_product'])) {
     $stok = $_POST['stok'];
     $spesifikasi = $_POST['spesifikasi'];
     $detail = $_POST['detail'];
-    $diskon = isset($_POST['diskon']) ? $_POST['diskon'] : ''; // Cek jika diskon kosong
+    $diskon = isset($_POST['diskon']) && $_POST['diskon'] != '' ? $_POST['diskon'] : NULL; // Set NULL jika kosong
     $berat = $_POST['berat'];
     $isikotak = $_POST['isikotak'];
     $foto1 = $_FILES['foto1']['name'];
@@ -41,14 +41,28 @@ if (isset($_POST['add_product'])) {
 
     // Persiapkan query
     $stmt = $conn->prepare($query);
-    
+
     // Bind parameters sesuai dengan jumlah dan tipe
-    $stmt->bind_param('iissdssssss', $idkat, $_SESSION['admin_id'], $nama, $harga, $stok, $spesifikasi, $detail, $diskon, $berat, $isikotak, $foto1, $foto2);
+    $stmt->bind_param(
+        'iissdsssssss', 
+        $idkat, 
+        $_SESSION['admin_id'], 
+        $nama, 
+        $harga, 
+        $stok, 
+        $spesifikasi, 
+        $detail, 
+        $diskon, 
+        $berat, 
+        $isikotak, 
+        $foto1, 
+        $foto2
+    );
 
     // Eksekusi query
     if ($stmt->execute()) {
         // Jika sukses, redirect ke halaman index
-        header("Location: ../index.php");
+        header("Location: ../../product_add.php");
         exit();
     } else {
         // Jika gagal, tampilkan pesan error
@@ -56,6 +70,7 @@ if (isset($_POST['add_product'])) {
     }
 }
 ?>
+
 
 <!-- Formulir untuk menambah produk -->
 <head>

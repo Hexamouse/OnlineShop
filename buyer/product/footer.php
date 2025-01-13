@@ -53,18 +53,18 @@
         <div class="w-1/5 text-right mb-6">
             <h4 class="font-bold mb-4">Pembayaran</h4>
             <div class="grid grid-cols-3 gap-2 justify-items-end">
-                <img src="../assets/images/payment/Indomaret.png" alt="Indomaret" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/alfamart.svg" alt="Alfamart" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Alfamidi.svg" alt="Alfamidi" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/BCA.svg" alt="BCA" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Mandiri.svg" alt="Mandiri" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/BNI.svg" alt="BNI" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/BRI.svg" alt="BRI" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Visa.svg" alt="Visa" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Mastercard.svg" alt="Mastercard" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Gopay.svg" alt="Gopay" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Dana.svg" alt="Dana" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/payment/Qris.svg" alt="Qris" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Indomaret.png" alt="Indomaret" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/alfamart.svg" alt="Alfamart" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Alfamidi.svg" alt="Alfamidi" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/BCA.svg" alt="BCA" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Mandiri.svg" alt="Mandiri" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/BNI.svg" alt="BNI" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/BRI.svg" alt="BRI" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Visa.svg" alt="Visa" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Mastercard.svg" alt="Mastercard" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Gopay.svg" alt="Gopay" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Dana.svg" alt="Dana" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/payment/Qris.svg" alt="Qris" class="w-16 h-8 border border-gray-300 rounded p-2">
             </div>
         </div>
     </div>
@@ -73,28 +73,28 @@
         <div class="w-1/5 text-left flex flex-col">
             <h4 class="font-bold mb-4">Pengiriman</h4>
             <div class="grid grid-cols-3 gap-2 justify-start">
-                <img src="../assets/images/delivery/Alfatrex.svg" alt="Alfatrex" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/J&T_Express.svg" alt="J&T_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/J&T_Cargo.png" alt="J&T_Cargo" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/SiCepat_Express.png" alt="SiCepat_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/Ninja_Express.png" alt="Ninja_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/GrabExpress.png" alt="GrabExpress" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/Gosend.png" alt="Gosend" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/AnterAja.png" alt="AnterAja" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/IndahExpress.png" alt="IndahExpress" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/SPX.png" alt="SPX" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/IndoPaket.png" alt="IndoPaket" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/delivery/BlueBirdKirim.png" alt="BlueBirdKirim" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/Alfatrex.svg" alt="Alfatrex" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/J&T_Express.svg" alt="J&T_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/J&T_Cargo.png" alt="J&T_Cargo" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/SiCepat_Express.png" alt="SiCepat_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/Ninja_Express.png" alt="Ninja_Express" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/GrabExpress.png" alt="GrabExpress" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/Gosend.png" alt="Gosend" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/AnterAja.png" alt="AnterAja" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/IndahExpress.png" alt="IndahExpress" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/SPX.png" alt="SPX" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/IndoPaket.png" alt="IndoPaket" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/delivery/BlueBirdKirim.png" alt="BlueBirdKirim" class="w-16 h-8 border border-gray-300 rounded p-2">
             </div>
         </div>
 
         <div class="w-1/5 text-left ml-20 flex flex-col">
             <h4 class="font-bold mb-4">Kerja Sama</h4>
             <div class="grid grid-cols-4 gap-2 justify-start">
-                <img src="../assets/images/coorporation/Shopee.svg" alt="Shopee" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/coorporation/Lazada.svg" alt="Lazada" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/coorporation/Tokopedia.svg" alt="Tokopedia" class="w-16 h-8 border border-gray-300 rounded p-2">
-                <img src="../assets/images/coorporation/Blibli.svg" alt="Blibli" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/coorporation/Shopee.svg" alt="Shopee" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/coorporation/Lazada.svg" alt="Lazada" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/coorporation/Tokopedia.svg" alt="Tokopedia" class="w-16 h-8 border border-gray-300 rounded p-2">
+                <img src="../../assets/images/coorporation/Blibli.svg" alt="Blibli" class="w-16 h-8 border border-gray-300 rounded p-2">
             </div>
         </div>
 

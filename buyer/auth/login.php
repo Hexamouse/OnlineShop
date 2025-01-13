@@ -72,8 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login | Kadai Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
 
+<style>
+        body {
+            /* Setting background seperti yang diminta */
+            background-color: white; /* Default background */
+            background: linear-gradient(to right, #80808033 1px, transparent 1px), linear-gradient(to bottom, #80808033 1px, transparent 1px);
+            background-size: 70px 70px; /* Ukuran kotak */
+        }
+    </style>
+
+<body>
     <!-- Login Section -->
     <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12">
 

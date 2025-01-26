@@ -5,16 +5,9 @@ session_start();
 // Memasukkan koneksi database
 require_once '../../includes/db.php'; // Pastikan path file ini sesuai
 
-// Memeriksa apakah form sudah disubmit
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Menangkap input form
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Cek apakah koneksi berhasil
-    if (!$conn) {
-        die("Koneksi gagal: " . mysqli_connect_error());
-    }
+// Fungsi untuk login
+function login($email, $password) {
+    global $conn;
 
     // Query untuk memeriksa apakah email ada dalam database
     $sql = "SELECT * FROM users WHERE email = ?";
@@ -41,13 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $user['username'];
             $_SESSION['nama_lengkap'] = $user['nama_lengkap'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['status'] = $user['status'];
+            $_SESSION['status'] = 'online'; // Set status online
+
+            // Update status user di database menjadi 'online'
+            $updateStatusSql = "UPDATE users SET status = 'online' WHERE email = ?";
+            $updateStmt = mysqli_prepare($conn, $updateStatusSql);
+            mysqli_stmt_bind_param($updateStmt, "s", $email);
+            mysqli_stmt_execute($updateStmt);
 
             // Menyimpan pesan sukses di session
             $_SESSION['success'] = "Login berhasil, selamat datang " . $user['username'] . "!";
-            
-            // Tidak langsung redirect, hanya menampilkan pesan sukses
-            header("Location: ../../../../index.php"); // Arahkan ke halaman login kembali
+
+            // Redirect ke halaman dashboard atau halaman utama
+            header("Location: ../../../../index.php");
             exit;
         } else {
             // Jika password salah
@@ -62,6 +61,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 }
+
+// Fungsi untuk logout
+function logout() {
+    global $conn;
+
+    // Memastikan user login
+    if (isset($_SESSION['iduser'])) {
+        $email = $_SESSION['email'];
+
+        // Update status user menjadi 'offline' sebelum logout
+        $updateStatusSql = "UPDATE users SET status = 'offline' WHERE email = ?";
+        $updateStmt = mysqli_prepare($conn, $updateStatusSql);
+        mysqli_stmt_bind_param($updateStmt, "s", $email);
+        mysqli_stmt_execute($updateStmt);
+    }
+
+    // Menghapus session dan redirect ke login page
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
+
+// Jika form login disubmit
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['action']) && $_POST['action'] == 'login') {
+        // Menangkap input form login
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        
+        // Panggil fungsi login
+        login($email, $password);
+    }
+}
+
+// Jika logout di-request
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    // Panggil fungsi logout
+    logout();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -74,13 +113,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <style>
-        body {
-            /* Setting background seperti yang diminta */
-            background-color: white; /* Default background */
-            background: linear-gradient(to right, #80808033 1px, transparent 1px), linear-gradient(to bottom, #80808033 1px, transparent 1px);
-            background-size: 70px 70px; /* Ukuran kotak */
-        }
-    </style>
+    body {
+        background-color: white;
+        background: linear-gradient(to right, #80808033 1px, transparent 1px), linear-gradient(to bottom, #80808033 1px, transparent 1px);
+        background-size: 70px 70px;
+    }
+</style>
 
 <body>
     <!-- Login Section -->
@@ -101,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="password" id="password" name="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400" placeholder="Password Anda">
                 </div>
                 <!-- Submit Button -->
-                <button type="submit" class="w-full py-2 px-4 bg-yellow-400 text-white font-semibold rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600 transition-all duration-300">
+                <button type="submit" name="action" value="login" class="w-full py-2 px-4 bg-yellow-400 text-white font-semibold rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600 transition-all duration-300">
                     Login
                 </button>
             </form>
@@ -128,14 +166,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Set timeout untuk menutup modal dan redirect ke halaman dashboard setelah 5 detik
         setTimeout(function() {
             document.querySelector('#modal').classList.add('hidden');
-            window.location.href = '../index.php';  // Ganti dengan URL dashboard atau halaman lain
-        }, 2000);  // Modal akan tampil selama 2 detik
+            window.location.href = '../index.php';  // Redirect ke halaman dashboard
+        }, 2000);
     </script>
     <?php elseif (isset($_SESSION['error'])): ?>
-    <!-- Modal Error tanpa pengalihan otomatis -->
     <div id="modal-error" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
             <h3 class="text-red-600 font-semibold text-lg">Error</h3>
@@ -145,10 +181,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Modal error hanya ditampilkan, tidak ada pengalihan otomatis
         setTimeout(function() {
             document.querySelector('#modal-error').classList.add('hidden');
-        }, 2000);  // Modal error tetap tampil selama 2 detik
+        }, 2000);
     </script>
     <?php endif; ?>
 

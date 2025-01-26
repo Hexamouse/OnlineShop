@@ -58,8 +58,8 @@ if (!$product) {
     <?php if ($show_modal): ?>
         <div id="loginModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
             <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-                <h2 class="text-2xl font-semibold mb-4">Peringatan</h2>
-                <p class="text-gray-700 mb-4">Anda harus login terlebih dahulu untuk melihat detail produk.</p>
+                <h2 class="text-2xl font-semibold mb-4">Login Dulu Cuy</h2>
+                <p class="text-gray-700 text-center mb-4">Kamu harus login dahulu sebelum mengakses ini !</p>
                 <button id="redirectToLogin" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">OK</button>
             </div>
         </div>

@@ -111,7 +111,7 @@ if (!$product) {
                 <?php endif; ?>
 
                 <!-- Add to Cart Form -->
-                <form action="cart_add.php" method="post" class="mt-6">
+                <form action="../../card_add.php" method="post" class="mt-6">
                     <input type="hidden" name="product_id" value="<?= $product['idproduk']; ?>">
                     <input type="number" name="quantity" min="1" max="<?= $product['stok']; ?>" value="1" required class="w-24 p-2 border border-gray-300 rounded-lg">
                     <button type="submit" class="mt-4 px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">

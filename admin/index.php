@@ -38,6 +38,10 @@ $admin_name = $_SESSION['admin_name'];  // Nama admin yang login
                     <li>
                         <a href="manage-users.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Users</a>
                     </li>
+                    <!-- New Voucher Management Menu Item -->
+                    <li>
+                        <a href="voucher-add.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Vouchers</a>
+                    </li>
                 </ul>
             </div>
             <div class="mt-6">
@@ -51,7 +55,7 @@ $admin_name = $_SESSION['admin_name'];  // Nama admin yang login
 
             <div class="bg-white shadow-lg rounded-lg p-6">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Dashboard Admin</h2>
-                <p class="text-gray-600 mt-2">Selamat datang di panel admin. Anda dapat mengelola produk, pengguna, dan lainnya di sini.</p>
+                <p class="text-gray-600 mt-2">Selamat datang di panel admin. Anda dapat mengelola produk, pengguna, voucher, dan lainnya di sini.</p>
             </div>
 
             <!-- Fitur-fitur Admin -->
@@ -75,6 +79,14 @@ $admin_name = $_SESSION['admin_name'];  // Nama admin yang login
                     <h3 class="text-xl font-semibold text-gray-800">Add New Product</h3>
                     <p class="text-gray-600">Tambahkan produk baru ke toko Anda.</p>
                     <a href="../admin/product_add.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Add Product</a>
+                </div>
+
+                <!-- New Card for Voucher Management -->
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Manage Vouchers</h3>
+                    <p class="text-gray-600">Kelola voucher yang tersedia untuk pelanggan.</p>
+                    <a href="voucher-add.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Add Voucher</a>
+                    <a href="manage-vouchers.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Manage Vouchers</a>
                 </div>
             </div>
 

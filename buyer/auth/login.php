@@ -113,12 +113,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 </head>
 
 <style>
-    body {
-        background-color: white;
-        background: linear-gradient(to right, #80808033 1px, transparent 1px), linear-gradient(to bottom, #80808033 1px, transparent 1px);
-        background-size: 70px 70px;
-    }
-</style>
+        body {
+            /* Setting background seperti yang diminta */
+            background-color: white; /* Default background */
+            background: linear-gradient(to right, #80808033 1px, transparent 1px), linear-gradient(to bottom, #80808033 1px, transparent 1px);
+            background-size: 70px 70px; /* Ukuran kotak */
+        }
+    </style>
 
 <body>
     <!-- Login Section -->

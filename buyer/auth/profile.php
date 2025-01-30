@@ -91,7 +91,8 @@ if (isset($_POST['update_profile'])) {
         </form>
 
         <div class="mt-6 text-center">
-            <a href="dashboard.php" class="inline-block px-6 py-2 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <a href="dashboard.php" class="i
+            nline-block px-6 py-2 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
                 Kembali ke Dashboard
             </a>
         </div>

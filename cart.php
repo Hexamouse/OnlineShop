@@ -120,7 +120,9 @@ if (!isset($_SESSION['iduser'])) {
                 <div class="mt-4 text-right px-4">
                     <strong>Total: </strong>
                     <span class="text-xl font-extrabold text-yellow-500" id="total-price">Rp 0</span>
-                    <button type="submit" class="px-6 py-2 bg-yellow-400 text-gray-800 font-bold rounded hover:bg-yellow-500">Proses Checkout</button>
+                    <button type="submit" onclick="return validateCheckout()" class="px-6 py-2 bg-yellow-400 text-gray-800 font-bold rounded hover:bg-yellow-500">
+    Proses Checkout
+</button>
                 </div>
             </form>
         <?php endif; ?>
@@ -171,6 +173,15 @@ function updateTotalPrice() {
 
     // Update the total price in the DOM
     document.getElementById('total-price').textContent = 'Rp ' + totalPrice.toLocaleString('id-ID');
+}
+
+function validateCheckout() {
+    let selectedItems = document.querySelectorAll('.item-checkbox:checked');
+    if (selectedItems.length === 0) {
+        alert("Pilih minimal satu produk sebelum checkout!");
+        return false;
+    }
+    return true;
 }
 </script>
 

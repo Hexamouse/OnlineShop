@@ -29,20 +29,20 @@ $admin_name = $_SESSION['admin_name'];  // Nama admin yang login
             <div>
                 <h2 class="text-3xl font-bold mb-8 text-center">Admin Dashboard</h2>
                 <ul>
-                    <li>
-                        <a href="index.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="manage-products.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Products</a>
-                    </li>
-                    <li>
-                        <a href="manage-users.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Users</a>
-                    </li>
-                    <!-- New Voucher Management Menu Item -->
-                    <li>
-                        <a href="voucher-add.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Vouchers</a>
-                    </li>
-                </ul>
+    <li>
+        <a href="index.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Dashboard</a>
+    </li>
+    <li>
+        <a href="manage-products.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Products</a>
+    </li>
+    <li>
+        <a href="manage-users.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Users</a>
+    </li>
+    <li>
+        <a href="admin_jasakirim.php" class="text-lg py-2 hover:bg-indigo-600 rounded px-4 block">Manage Jasa Kirim</a>
+    </li>
+</ul>
+
             </div>
             <div class="mt-6">
                 <a href="../admin/logout.php" class="border bg-indigo-600 p-2 rounded-lg text-center text-indigo-200 hover:text-indigo-300">Logout</a>
@@ -81,13 +81,14 @@ $admin_name = $_SESSION['admin_name'];  // Nama admin yang login
                     <a href="../admin/product_add.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Add Product</a>
                 </div>
 
-                <!-- New Card for Voucher Management -->
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800">Manage Vouchers</h3>
-                    <p class="text-gray-600">Kelola voucher yang tersedia untuk pelanggan.</p>
-                    <a href="voucher-add.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Add Voucher</a>
-                    <a href="manage-vouchers.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">Manage Vouchers</a>
-                </div>
+                <!-- Card untuk mengelola Jasa Kirim -->
+<div class="bg-white shadow-lg rounded-lg p-6">
+    <h3 class="text-xl font-semibold text-gray-800">Manage Jasa Kirim</h3>
+    <p class="text-gray-600">Kelola jasa pengiriman yang tersedia.</p>
+    <a href="admin_jasakirim.php" class="mt-4 inline-block py-2 px-4 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-300">
+        Manage Jasa Kirim
+    </a>
+</div>
             </div>
 
         </div>
